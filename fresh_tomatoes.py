@@ -128,16 +128,12 @@ movie_tile_content = '''
     <table class="table">
         <tbody>
             <tr>
-                <th scope="row">Director:</th>
-                <td>{director}</td>
+                <th scope="row">Vote Average:</th>
+                <td>{vote_average}</td>
             </tr>
             <tr>
-                 <th scope="row">Writer:</th>
-                 <td>{writer}</td>
-            </tr>
-            <tr>
-                <th scope="row">Stars:</th>
-                <td>{stars}</td>
+                 <th scope="row">Popularity:</th>
+                 <td>{popularity}</td>
             </tr>
         </tbody>
     </table>
@@ -159,9 +155,8 @@ def create_movie_tiles_content(movies):
             poster_image_url = movie.poster_image_url,
             trailer_youtube_id = trailer_youtube_id,
             movie_storyline = movie.stoyline,
-            director = movie.director,
-            writer = movie.writers,
-            stars = movie.stars
+            vote_average = movie.vote_average,
+            popularity = movie.popularity
         )
     return content
 
