@@ -138,13 +138,13 @@ movies = [
     the_shape_of_water,
     three_bilboards_outsite_ebbing,
     tiger_zinda_hai,
-    call_me_by_your_name,
     phantom_thread,
-    suburbicon,
-    the_post,
     i_tonya,
     avengers_infinity_war,
-    darkest_hour
+    darkest_hour,
+    the_post,
+    call_me_by_your_name,
+    suburbicon
     ]
 
 fresh_tomatoes.open_movies_page(movies)
