@@ -1,5 +1,5 @@
 import media
-import view
+import fresh_tomatoes
 import requests
 import json
 
@@ -53,4 +53,4 @@ json_list = json.loads(list_of_movies.text)["results"]
 for movie_item in json_list:
     array_of_movies.append(get_movie_data(movie_item))
 
-view.open_movies_page(array_of_movies)
+fresh_tomatoes.open_movies_page(array_of_movies)
