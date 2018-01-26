@@ -6,7 +6,7 @@ import re
 main_page_head = '''
 <head>
     <meta charset="utf-8">
-    <title>Hoff Silva - Movie Trailers</title>
+    <title>Hoff Silva - Movie Trailers - The Movie DB API</title>
 
     <!-- Bootstrap 3 -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
@@ -64,6 +64,7 @@ main_page_head = '''
         // Start playing the video whenever the trailer modal is opened
         $(document).on('click', '.movie-tile', function (event) {
             var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            document.getElementById("movie_overview").innerHTML = $(this).attr('movie-overview');
             var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
             $("#trailer-video-container").empty().append($("<iframe></iframe>", {
               'id': 'trailer-video',
@@ -96,6 +97,8 @@ main_page_content = '''
           </a>
           <div class="scale-media" id="trailer-video-container">
           </div>
+          <p class="text-justify lead" id="movie_overview">
+          </p>
         </div>
       </div>
     </div>
@@ -105,7 +108,7 @@ main_page_content = '''
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">Hoff Silva - Movie Trailers</a>
+            <a class="navbar-brand" href="#">Hoff Silva - Movie Trailers - The Movie DB API</a>
           </div>
         </div>
       </div>
@@ -119,12 +122,11 @@ main_page_content = '''
 
 # A single movie entry html template
 movie_tile_content = '''
-<div class="col-md-4 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
+
+<div class="col-md-3 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" movie-overview="{movie_storyline}" data-toggle="modal" data-target="#trailer" >
     <img src="{poster_image_url}" width="220" height="342">
-    <h3>{movie_title}</h3>
-    <div class="text-justify">
-        <p>{movie_storyline}</p>
-    </div>
+    <h4>{movie_title}</h4>
+    <div movie-overview-id="{movie_storyline}" data-toggle="modal" data-target="#trailer"></div>
     <table class="table">
         <tbody>
             <tr>
@@ -134,6 +136,10 @@ movie_tile_content = '''
             <tr>
                  <th scope="row">Popularity:</th>
                  <td>{popularity}</td>
+            </tr>
+            <tr>
+                 <th scope="row">Release Date:</th>
+                 <td>{release_date}</td>
             </tr>
         </tbody>
     </table>
@@ -156,7 +162,8 @@ def create_movie_tiles_content(movies):
             trailer_youtube_id = trailer_youtube_id,
             movie_storyline = movie.stoyline,
             vote_average = movie.vote_average,
-            popularity = movie.popularity
+            popularity = movie.popularity,
+            release_date = movie.release_date
         )
     return content
 
