@@ -16,7 +16,7 @@ Server side to store and show movies' posters, youtube link, overview and etc.
 
 ### Bonus
 
-* This site is consuming The Moview DB API.
+* This site is consuming The Movie DB API.
 
 
 
