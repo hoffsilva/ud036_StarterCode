@@ -3,7 +3,7 @@ import fresh_tomatoes
 import requests
 import json
 
-api_key = "edacb7eeacf9c2be67d32057dc199a0f"
+api_key = ""
 
 list_of_movies = requests.get('https://api.themoviedb.org/3/movie/popular?api_key='+api_key+'&language=en-US&page=1')
 
