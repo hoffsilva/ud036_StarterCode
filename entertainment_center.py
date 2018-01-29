@@ -12,7 +12,7 @@ full_url = default_url + api_key + lang_set + number_page
 
 youtube_url = "https://www.youtube.com/watch?v="
 
-movies_url = default_url+"popular"
+movies_url = "https://api.themoviedb.org/3/movie/"
 
 list_of_movies = requests.get(full_url)
 
