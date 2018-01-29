@@ -102,7 +102,6 @@ main_page_content = '''
         </div>
       </div>
     </div>
-    
     <!-- Main Page Content -->
     <div class="container">
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -146,6 +145,7 @@ movie_tile_content = '''
 </div>
 '''
 
+
 def create_movie_tiles_content(movies):
     # The HTML content for this section of the page
     content = ''
@@ -157,27 +157,26 @@ def create_movie_tiles_content(movies):
 
         # Append the tile for the movie with its content filled in
         content += movie_tile_content.format(
-            movie_title = movie.title,
-            poster_image_url = movie.poster_image_url,
-            trailer_youtube_id = trailer_youtube_id,
-            movie_storyline = movie.stoyline,
-            vote_average = movie.vote_average,
-            popularity = movie.popularity,
-            release_date = movie.release_date
+            movie_title=movie.title,
+            poster_image_url=movie.poster_image_url,
+            trailer_youtube_id=trailer_youtube_id,
+            movie_storyline=movie.stoyline,
+            vote_average=movie.vote_average,
+            popularity=movie.popularity,
+            release_date=movie.release_date
         )
     return content
 
+
 def open_movies_page(movies):
-  # Create or overwrite the output file
-  output_file = open('fresh_tomatoes.html', 'w')
-
-  # Replace the placeholder for the movie tiles with the actual dynamically generated content
-  rendered_content = main_page_content.format(movie_tiles=create_movie_tiles_content(movies))
-
-  # Output the file
-  output_file.write(main_page_head + rendered_content)
-  output_file.close()
-
-  # open the output file in the browser
-  url = os.path.abspath(output_file.name)
-  webbrowser.open('file://' + url, new=2) # open in a new tab, if possible
+    # Create or overwrite the output file
+    output_file = open('fresh_tomatoes.html', 'w')
+    # Replace the placeholder for the movie tiles with the actual dynamically generated content
+    rendered_content = main_page_content.format(movie_tiles=create_movie_tiles_content(movies))
+    # Output the file
+    output_file.write(main_page_head + rendered_content)
+    output_file.close()
+    # open the output file in the browser
+    url = os.path.abspath(output_file.name)
+    # open in a new tab, if possible
+    webbrowser.open('file://' + url, new=2)
