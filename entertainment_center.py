@@ -4,7 +4,7 @@ import requests
 import json
 
 default_url = "https://api.themoviedb.org/3/movie/popular?"
-api_key = "api_key=edacb7eeacf9c2be67d32057dc199a0f"
+api_key = "api_key="
 # set the default idiom to get info about movies
 lang_set = "&language=en-US"
 number_page = "&page=1"
